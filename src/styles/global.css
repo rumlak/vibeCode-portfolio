@@ -1,0 +1,245 @@
+:root {
+	--color-bg: #ffffff;
+	--color-ink: #0b0b0b;
+	--color-muted: #5f5f5f;
+	--color-accent: #e10600;
+	--color-border: #e7e7e7;
+	--max-width: 960px;
+	--space-1: 0.5rem;
+	--space-2: 1rem;
+	--space-3: 1.5rem;
+	--space-4: 2.5rem;
+	--space-5: 4rem;
+	--space-6: 6rem;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Switzer", system-ui, sans-serif;
+	color: var(--color-ink);
+	background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+	min-height: 100vh;
+}
+
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+	text-decoration: underline;
+}
+
+.page {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.site-header {
+	border-bottom: 1px solid var(--color-border);
+	background: rgba(255, 255, 255, 0.9);
+	backdrop-filter: blur(6px);
+}
+
+.site-inner {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: var(--space-3) var(--space-2);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-2);
+}
+
+.logo {
+	font-family: "Khand", sans-serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+	letter-spacing: 0.08em;
+	color: var(--color-ink);
+}
+
+.site-nav {
+	display: flex;
+	gap: var(--space-2);
+	font-size: 0.95rem;
+}
+
+.site-nav a {
+	color: var(--color-ink);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-weight: 600;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+	color: var(--color-accent);
+}
+
+.site-main {
+	flex: 1;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: var(--space-5) var(--space-2) var(--space-6);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-5);
+}
+
+h1,
+h2,
+h3 {
+	font-family: "Khand", sans-serif;
+	margin: 0 0 var(--space-2);
+	line-height: 1.1;
+}
+
+h1 {
+	font-size: clamp(2.5rem, 4vw, 3.75rem);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+h2 {
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+
+h3 {
+	font-size: 1.4rem;
+}
+
+p {
+	margin: 0 0 var(--space-2);
+	color: var(--color-ink);
+	line-height: 1.6;
+}
+
+.lead {
+	font-size: 1.1rem;
+	color: var(--color-muted);
+	max-width: 42rem;
+}
+
+.section-head p {
+	color: var(--color-muted);
+	max-width: 40rem;
+}
+
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: var(--space-3);
+}
+
+.card {
+	border: 1px solid var(--color-border);
+	padding: var(--space-3);
+	background: #fff;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.card .outcome {
+	font-weight: 600;
+	color: var(--color-muted);
+}
+
+.newsletter {
+	border: 1px solid var(--color-border);
+	padding: var(--space-4);
+	background: #fff;
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+}
+
+.newsletter-inner {
+	display: grid;
+	gap: var(--space-3);
+	align-items: center;
+}
+
+.newsletter-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+}
+
+.newsletter-form input {
+	flex: 1 1 220px;
+	padding: 0.85rem 1rem;
+	border: 1px solid var(--color-ink);
+	font-size: 1rem;
+}
+
+.newsletter-form input:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+}
+
+.newsletter-form button {
+	background: var(--color-accent);
+	color: #fff;
+	border: 1px solid var(--color-accent);
+	padding: 0.85rem 1.5rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	cursor: pointer;
+	transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.newsletter-form button:hover,
+.newsletter-form button:focus-visible {
+	transform: translateY(-1px);
+	box-shadow: 0 8px 18px rgba(225, 6, 0, 0.25);
+}
+
+.page-body {
+	max-width: 50rem;
+	display: grid;
+	gap: var(--space-2);
+}
+
+.site-footer {
+	border-top: 1px solid var(--color-border);
+	padding: var(--space-3) var(--space-2);
+	text-align: center;
+	font-size: 0.9rem;
+	color: var(--color-muted);
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (max-width: 720px) {
+	.site-inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.site-nav {
+		flex-wrap: wrap;
+	}
+
+	.newsletter {
+		padding: var(--space-3);
+	}
+}

@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
+import ProjectsContent, { frontmatter } from "../content/pages/projects.md";
+
+const { metaTitle, intro, projects, newsletter } = frontmatter;
+---
+<BaseLayout title={metaTitle} description={intro}>
+	<section class="hero">
+		<h1>{frontmatter.title}</h1>
+		<p class="lead">{intro}</p>
+	</section>
+
+	<section class="projects-list">
+		<div class="card-grid">
+			{projects.map((project) => (
+				<article class="card">
+					<h3>{project.title}</h3>
+					<p>{project.description}</p>
+					<p class="outcome">{project.outcome}</p>
+				</article>
+			))}
+		</div>
+	</section>
+
+	<section class="page-body">
+		<ProjectsContent />
+	</section>
+
+	<NewsletterForm
+		id="projects-newsletter"
+		title={newsletter.title}
+		body={newsletter.body}
+		inputLabel={newsletter.inputLabel}
+		inputPlaceholder={newsletter.inputPlaceholder}
+		buttonText={newsletter.buttonText}
+	/>
+</BaseLayout>

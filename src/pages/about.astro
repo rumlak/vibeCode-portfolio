@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
+import AboutContent, { frontmatter } from "../content/pages/about.md";
+
+const { metaTitle, intro, newsletter } = frontmatter;
+---
+<BaseLayout title={metaTitle} description={intro}>
+	<section class="hero">
+		<h1>{frontmatter.title}</h1>
+		<p class="lead">{intro}</p>
+	</section>
+
+	<section class="page-body">
+		<AboutContent />
+	</section>
+
+	<NewsletterForm
+		id="about-newsletter"
+		title={newsletter.title}
+		body={newsletter.body}
+		inputLabel={newsletter.inputLabel}
+		inputPlaceholder={newsletter.inputPlaceholder}
+		buttonText={newsletter.buttonText}
+	/>
+</BaseLayout>
